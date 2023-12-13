@@ -2,6 +2,7 @@ import express from "express";
 import cors from"cors";
 import connectionDB from "./config/db.js";
 import animeRoutes from "./routes/animeRoutes.js";
+import characterRoutes from "./routes/characterRoutes.js";
 
 const app= express();
 app.use(express.json())
@@ -18,6 +19,7 @@ const corsOptions={
 }
 app.use(cors(corsOptions))
 app.use('/api/Anime', animeRoutes)
+app.use('/api/Character', characterRoutes)
 
 const PORT=4000
 

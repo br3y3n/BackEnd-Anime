@@ -12,7 +12,7 @@ const addAnime= async(req, res)=>{
         const animeSave= await Anime.save()
         res.json(animeSave)
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
     }
 }
 
