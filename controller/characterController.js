@@ -38,17 +38,18 @@ const modifyCharacter=async( req, res)=>{
     }
 }
 const readCharacter= async(req, res)=>{
+    const {id}= req.params
     try {
-    const Character= await character.find({})
-    res.send({Character}) 
+    const Character= await character.findById(id)
+    res.json({Character}) 
 } catch (error) {
-    res.status(500).send('Error al obtener los personajes')
+    res.status(500).json('Error al obtener los personajes')
 
     console.log(error)
 }
 }
 
-const delateCharacter=async (req, res)=>{
+const deleteCharacter=async (req, res)=>{
     const {id}= req.params
 
     try {
@@ -66,5 +67,5 @@ export{
     addCharacter,
     modifyCharacter,
     readCharacter,
-    delateCharacter
+    deleteCharacter
 }
